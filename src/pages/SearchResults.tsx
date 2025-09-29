@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { TripCard, Trip } from "@/components/TripCard";
-import { supabase } from "@/integrations/supabase";
+import { supabase } from "@/integrations/supabase/client";
 import { Search, Frown, ArrowRight } from "lucide-react";
 
 const SearchResults = () => {
