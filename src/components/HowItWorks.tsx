@@ -11,7 +11,7 @@ const steps = [
   {
     icon: CreditCard,
     title: "Réservez",
-    description: "Sélectionnez votre voyage et payez en toute sécurité avec plusieurs options de paiement",
+    description: "Sélectionnez votre voyage et payez en toute sécurité par carte ou Mobile Money (M-Pesa, Orange Money)",
     color: "bg-accent"
   },
   {

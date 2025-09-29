@@ -4,36 +4,36 @@ import { Star, Wifi, Coffee, Car } from "lucide-react";
 
 const companies = [
   {
-    name: "FlixBus",
+    name: "Congo Express",
     type: "Bus",
-    rating: 4.5,
-    features: ["Wi-Fi gratuit", "Prises électriques", "Siège confort"],
+    rating: 4.6,
+    features: ["Climatisation", "Sièges confortables", "Sécurité à bord"],
     logo: "🚌",
-    color: "bg-green-500"
-  },
-  {
-    name: "SNCF Connect",
-    type: "Train",
-    rating: 4.7,
-    features: ["Haute vitesse", "Restauration", "1ère classe"],
-    logo: "🚄",
     color: "bg-blue-500"
   },
   {
-    name: "Transavia",
-    type: "Avion",
-    rating: 4.3,
-    features: ["Vol direct", "Bagages inclus", "Check-in mobile"],
-    logo: "✈️",
-    color: "bg-sky-500"
+    name: "SNCC",
+    type: "Train",
+    rating: 4.4,
+    features: ["Wagon-restaurant", "Cabines couchettes", "Paysages uniques"],
+    logo: "🚄",
+    color: "bg-red-500"
   },
   {
-    name: "Eurolines",
+    name: "Congo Airways",
+    type: "Avion",
+    rating: 4.7,
+    features: ["Service national", "Sécurité certifiée", "Confort en vol"],
+    logo: "✈️",
+    color: "bg-green-500"
+  },
+  {
+    name: "RapideBus",
     type: "Bus",
-    rating: 4.2,
-    features: ["Réseau européen", "Tarifs flexibles", "Confort+"],
+    rating: 4.3,
+    features: ["Trajets directs", "Wi-Fi à bord", "Tarifs économiques"],
     logo: "🚌",
-    color: "bg-orange-500"
+    color: "bg-yellow-500"
   }
 ];
 
@@ -46,7 +46,7 @@ export const FeaturedCompanies = () => {
             Nos partenaires de confiance
           </h2>
           <p className="body text-muted-foreground max-w-2xl mx-auto">
-            Voyagez avec les meilleures compagnies de transport d'Europe
+            Des compagnies locales engagées pour vos voyages en RDC.
           </p>
         </div>
 

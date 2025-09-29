@@ -58,11 +58,11 @@ export const Footer = () => {
               <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
                 <Ticket className="w-5 h-5 text-white" />
               </div>
-              <span className="font-bold text-xl text-primary">VoyageExpress</span>
+              <span className="font-bold text-xl text-primary">Congo Billet</span>
             </Link>
             <p className="text-secondary-foreground/80 mb-6 max-w-sm">
               La plateforme de réservation de billets la plus simple et la plus fiable 
-              pour tous vos voyages en Europe.
+              pour tous vos voyages en RDC.
             </p>
             <div className="flex space-x-4">
               {socialLinks.map((social) => (
@@ -103,7 +103,7 @@ export const Footer = () => {
         {/* Bottom */}
         <div className="border-t border-secondary-light/20 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <div className="text-secondary-foreground/60 text-sm">
-            © 2024 VoyageExpress. Tous droits réservés.
+            © 2025 Congo Billet. Tous droits réservés.
           </div>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link to="/" className="text-secondary-foreground/60 hover:text-primary text-sm transition-colors">

@@ -17,26 +17,26 @@ export const HeroSection = () => {
         {/* Hero Content */}
         <div className="mb-12 animate-fade-in">
           <h1 className="heading-1 text-white mb-6">
-            Voyagez en toute simplicité
+            Votre billet pour la RDC, en un clic
           </h1>
           <p className="body-large text-white/90 max-w-2xl mx-auto mb-8">
-            Réservez vos billets de bus, train et avion en quelques clics. 
-            Des milliers de destinations à travers la France et l'Europe.
+            Réservez vos billets de bus, train et avion en toute simplicité.
+            Connecter les villes et les populations de la République Démocratique du Congo.
           </p>
           
           {/* Stats */}
           <div className="flex flex-wrap justify-center gap-8 mb-12 text-white/80">
             <div className="text-center">
-              <div className="text-2xl font-bold text-white">500+</div>
-              <div className="text-sm">Destinations</div>
+              <div className="text-2xl font-bold text-white">5+</div>
+              <div className="text-sm">Villes Principales</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-white">50+</div>
-              <div className="text-sm">Compagnies</div>
+              <div className="text-2xl font-bold text-white">10+</div>
+              <div className="text-sm">Compagnies Partenaires</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-white">2M+</div>
-              <div className="text-sm">Voyageurs</div>
+              <div className="text-2xl font-bold text-white">100+</div>
+              <div className="text-sm">Trajets par jour</div>
             </div>
           </div>
         </div>
