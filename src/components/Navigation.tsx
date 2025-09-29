@@ -1,12 +1,21 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, User, LogIn, Ticket } from "lucide-react";
+import { Menu, User, LogIn, Ticket, LogOut } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
+import { useAuth } from "@/contexts/AuthContext";
+import { 
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const { user, signOut } = useAuth();
 
   const navItems = [
     { href: "/", label: "Accueil" },
@@ -15,6 +24,42 @@ export const Navigation = () => {
   ];
 
   const isActive = (href: string) => location.pathname === href;
+
+  const handleSignOut = async () => {
+    await signOut();
+  };
+
+  const AuthenticatedUserMenu = () => (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button variant="ghost" size="sm" className="flex items-center gap-2">
+          <User className="w-4 h-4" />
+          <span className="hidden sm:inline">
+            {user?.user_metadata?.full_name || user?.email?.split('@')[0] || 'Mon compte'}
+          </span>
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="end" className="w-56">
+        <DropdownMenuItem asChild>
+          <Link to="/profil" className="flex items-center gap-2">
+            <User className="w-4 h-4" />
+            Mon profil
+          </Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem asChild>
+          <Link to="/tableau-de-bord" className="flex items-center gap-2">
+            <Ticket className="w-4 h-4" />
+            Mes voyages
+          </Link>
+        </DropdownMenuItem>
+        <DropdownMenuSeparator />
+        <DropdownMenuItem onClick={handleSignOut} className="text-destructive">
+          <LogOut className="w-4 h-4 mr-2" />
+          Se déconnecter
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
 
   const NavContent = () => (
     <>
@@ -52,14 +97,24 @@ export const Navigation = () => {
 
           {/* Desktop Auth Buttons */}
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="ghost" size="sm">
-              <User className="w-4 h-4 mr-2" />
-              Mon compte
-            </Button>
-            <Button variant="default" size="sm">
-              <LogIn className="w-4 h-4 mr-2" />
-              Connexion
-            </Button>
+            {user ? (
+              <AuthenticatedUserMenu />
+            ) : (
+              <>
+                <Button variant="ghost" size="sm" asChild>
+                  <Link to="/auth">
+                    <User className="w-4 h-4 mr-2" />
+                    Mon compte
+                  </Link>
+                </Button>
+                <Button variant="default" size="sm" asChild>
+                  <Link to="/auth">
+                    <LogIn className="w-4 h-4 mr-2" />
+                    Connexion
+                  </Link>
+                </Button>
+              </>
+            )}
           </div>
 
           {/* Mobile Navigation */}
@@ -73,14 +128,39 @@ export const Navigation = () => {
               <div className="flex flex-col space-y-4 mt-8">
                 <NavContent />
                 <div className="border-t pt-4 space-y-2">
-                  <Button variant="ghost" className="w-full justify-start">
-                    <User className="w-4 h-4 mr-2" />
-                    Mon compte
-                  </Button>
-                  <Button variant="default" className="w-full justify-start">
-                    <LogIn className="w-4 h-4 mr-2" />
-                    Connexion
-                  </Button>
+                  {user ? (
+                    <>
+                      <Button variant="ghost" className="w-full justify-start" asChild>
+                        <Link to="/profil">
+                          <User className="w-4 h-4 mr-2" />
+                          Mon profil
+                        </Link>
+                      </Button>
+                      <Button 
+                        variant="ghost" 
+                        className="w-full justify-start text-destructive" 
+                        onClick={handleSignOut}
+                      >
+                        <LogOut className="w-4 h-4 mr-2" />
+                        Se déconnecter
+                      </Button>
+                    </>
+                  ) : (
+                    <>
+                      <Button variant="ghost" className="w-full justify-start" asChild>
+                        <Link to="/auth">
+                          <User className="w-4 h-4 mr-2" />
+                          Mon compte
+                        </Link>
+                      </Button>
+                      <Button variant="default" className="w-full justify-start" asChild>
+                        <Link to="/auth">
+                          <LogIn className="w-4 h-4 mr-2" />
+                          Connexion
+                        </Link>
+                      </Button>
+                    </>
+                  )}
                 </div>
               </div>
             </SheetContent>
