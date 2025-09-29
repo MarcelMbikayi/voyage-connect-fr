@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Tag } from "@/components/ui/tag";
+import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Clock, DollarSign, Navigation } from "lucide-react";
 
 // Define a type for the trip data for type safety
@@ -39,7 +39,7 @@ export const TripCard = ({ trip, onSelect }: TripCardProps) => {
     <Card className="p-4 mb-4 flex flex-col md:flex-row justify-between items-center transition-all hover:shadow-lg hover:border-primary">
       <div className="flex-grow w-full md:w-auto">
         <div className="flex items-center justify-between mb-4">
-          <Tag>{trip.company_name}</Tag>
+          <Badge>{trip.company_name}</Badge>
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
             <Clock className="w-4 h-4" />
             <span>{getDuration(trip.departure_time, trip.arrival_time)}</span>
